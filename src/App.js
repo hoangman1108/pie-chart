@@ -114,27 +114,6 @@ const App = () => {
           objData[e[Object.keys(e)[0]]] += e[Object.keys(e)[1]];
         }
       })
-      console.log('objData: ', objData);
-      // series: [
-      //   {
-      //     // So sánh dựa trên tiêu chuẩn nào
-      //     name: 'Brands',
-      //     colorByPoint: true,
-      //     // số liệu tại đây
-      //     data: [
-      //       {
-      //         name: 'Chrome',
-      //         y: 61.41,
-      //         sliced: true,
-      //         selected: true,
-      //       },
-      //       {
-      //         name: 'Other',
-      //         y: 2.61,
-      //       },
-      //     ],
-      //   },
-      // ],
       const dataSeries = Object.keys(objData).map((value) => {
         return {
           name: value,
