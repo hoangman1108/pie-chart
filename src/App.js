@@ -99,11 +99,28 @@ const App = () => {
   }, []);
   const axiosData = async () => {
 
-    const { success, data } = await axiosPost('http://localhost:4000/v1/dataset/sample', {
-      tableName: "products",
-      fields: ["productLine", "buyPrice"],
-      datasetId: "62471ff2c75da6094c669937",
-    });
+    const { success, data } = await axiosPost('http://localhost:4000/v1/dataset/query-data', {
+      "selectFields": [{
+        "table": "products",
+        "field": "productLine"
+      },
+      // {
+      //   "table": "orderdetails",
+      //   "field": "priceEach"
+      // },
+      {
+        "table": "products",
+        "field": "buyPrice"
+      }],
+      "datasetId": "6253ef4afec5a30b2d0173d1",
+      "table": {
+        "tableName": "products",
+        "keyPreference": ["productCode"],
+        "keyTo": ["productCode"],
+        "to": ["orderdetails"]
+      }
+    }
+    );
 
     if (success) {
       const objData = {};
